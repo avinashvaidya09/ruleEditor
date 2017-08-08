@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="ruleEditorApp">
+<head>
+<title>Rule Editor</title>
+<!-- Third Party JS FILES -->
+<script src="resources/angular.js"></script>
+<script src="resources/angular-route.min.js"></script>
+<script src="resources/angular-bootstrap-lightbox.js"></script>
+<script src="resources/angular-resource.min.js"></script>
+<script src="resources/jquery-1.10.2.min.js"></script>
+<script src="resources/ui-bootstrap-tpls-0.13.4.min.js"></script>
+<script src="resources/bootstrap.min.js"></script>
+<script src="resources/sockjs-0.3.4.js"></script>
+<script src="resources/stomp.js"></script>
+<script src="resources/ngDialog.min.js"></script>
+
+<!-- Third Party JS FILES End -->
+<!-- CUSTOM JS FILES -->
+<script type="text/javascript" src="javascript/app.js"></script>
+<script type="text/javascript" src="javascript/dataFactory.js"></script>
+<script type="text/javascript" src="javascript/serviceConfig.js"></script>
+<script type="text/javascript"
+	src="javascript/controllers/ruleInfoController.js"></script>
+	<script type="text/javascript"
+	src="javascript/controllers/mainPageController.js"></script>
+<script type="text/javascript"
+	src="javascript/controllers/editRuleInfoController.js"></script>
+<script type="text/javascript"
+	src="javascript/controllers/createRuleInfoController.js"></script>
+<script type="text/javascript"
+	src="javascript/services/ruleInfoService.js"></script>
+	<script type="text/javascript"
+	src="javascript/controllers/errorHandleController.js"></script>
+<!-- CUSTOM JS FILES END -->
+
+<!-- Third party css -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
+<link rel="stylesheet" type="text/css"
+	href="css/angular-bootstrap-lightbox.css"></link>
+	
+<link rel="stylesheet" type="text/css" href="css/animate.min.css"></link>
+<link rel="stylesheet" type="text/css" href="css/bootstrap-editable.css"></link>
+<link rel="stylesheet" type="text/css" href="css/ngDialog.min.css"></link>
+<link rel="stylesheet" type="text/css" href="css/ngDialog-theme-default.min.css"></link>
+<link rel="stylesheet" type="text/css" href="css/styleRuleEditor.css"></link>
+
+<!-- Third party css ends -->
+
+
+
+</head>
+<body>
+	<div id="ruleEditorDiv">
+		<nav class="navbar navbar-default navbar-custom">
+			<div class="container-fluid">
+				<div class="navbar-header" id="navBarBrand">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#ruleEditorMainNav"
+						aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" ng-href="#/viewRules" style="font-size: 25px" disabled>Rule Editor</a>
+				</div>
+				<div class="collapse navbar-collapse" id="ruleEditorMainNav">
+					<ul class="nav navbar-nav">
+						<li id="viewRulesId"><a ng-href="#/viewRules"> View Rules </a>
+						</li>
+						<li id="createRuleId"><a ng-href="#/createRule"> Create Rule </a></li>
+						<li id="editRuleId"><a ng-href="#/editRule">Edit Rule</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<ng-view></ng-view>
+
+	</div>
+	<div id="screen"></div>
+	<div id="imageBox">
+		<img style="border-radius: 20px 20px 20px 20px;"
+			src="images/ajax-loader.gif" />
+	</div>
+	
+	<script type="text/javascript">
+$('#ruleEditorMainNav > ul.nav li a','#navBarBrand > a').click(function(e) {
+    var $this = $(this);
+    $this.parent().siblings().removeClass('active').end().addClass('active');
+});
+</script>
+
+</body>
+</html>

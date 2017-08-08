@@ -1,0 +1,112 @@
+<div id="editRuleDivId" ng-controller="editRuleInfoController"
+	ng-init="loadRuleForEdit()">
+
+	<div class="container-fluid" style="width: 80%">
+		<div class="row">
+			<div style="font-size: 16pt; font-weight: bold; text-align: center;">Edit
+				Rule</div>
+		</div>
+		<div class="row" style="margin-top: 20px">
+			<div class="form-group" style="margin-left: 8%; margin-right: 8%;">
+				<div class="col-md-6 col-sm-12">
+					<label>Rule Name:</label> <input type="text" class="form-control"
+						ng-model="ruleEdit.ruleName" placeholder="Edit the rule Name"
+						id="editRuleName" ng-change="onEditChange()">
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<label>Status:</label> <select class="form-control"
+						ng-model="ruleEdit.status">
+						<option value="" disabled selected>Choose Rule Status?</option>
+						<option value="ACTIVE">ACTIVE</option>
+						<option value="INACTIVE">INACTIVE</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row" id="addRuleConfigSection">
+			<div class="form-group">
+
+				<div class="col-md-3" style="margin-left: 8%">
+					<h3 class="pull-left">
+						<button type="button" class="btn btn-primary" id="findRuleObjId"
+							ng-click="findRule()">Find Rule</button>
+					</h3>
+				</div>
+				<div class="col-md-3 pull-right" style="margin-right: 8%">
+					<h3 class="pull-right">
+
+						<button type="button" class="btn btn-primary"
+							id="addRuleConfigurationId" ng-click="addRuleConfiguration()">Add
+							Configuration</button>
+					</h3>
+				</div>
+
+				<div class="col-md-12" style="margin-left: 25px" id="configKeyValueId">
+
+
+					<div class="row" style="margin-top: 20px" >
+						<div class="form-group">
+							<div class="col-md-6 col-sm-12">
+								<label style="margin-left: 40%">Config Keys</label>
+							</div>
+							<div class="col-md-6 col-sm-12">
+								<label style="margin-left: 20%">Config Values</label> 
+							</div>
+						</div>
+					</div>
+
+					<ul type="none">
+
+						<li ng-repeat="ruleConfig in ruleEdit.ruleConfigUiList"
+							style="height: 20px;">
+							<div style="margin-top: 30px">
+								<div class="top-clearfix col-md-5 col-xs-4">
+									<input type="text" class="form-control"
+										ng-model="ruleConfig.configName"
+										placeholder="Enter Rule Config Name">
+								</div>
+
+								<div class="top-clearfix col-md-5 col-xs-4">
+									<input type="text" class="form-control"
+										ng-model="ruleConfig.configValue"
+										placeholder="Enter Rule Config Value">
+								</div>
+
+								<div class="top-clearfix col-md-1 col-xs-4">
+									<a class="btn btn-danger btn-md"><label></label><span
+										class="glyphicon glyphicon-minus"
+										ng-click="removeConfigFromList(ruleConfig)"></span></a>
+								</div>
+
+							</div>
+						</li>
+
+					</ul>
+				</div>
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3" style="margin-left: 9%">
+							<h3 class="pull-left">
+
+								<button type="button" class="btn btn-danger"
+									id="deleteRuleObjId" ng-click="deleteRule()">Delete
+									Rule</button>
+							</h3>
+						</div>
+						<div class="col-md-3 pull-right" style="margin-right: 9%">
+							<h3 class="pull-right">
+
+								<button type="button" class="btn btn-success"
+									id="updateRuleObjId" ng-click="UpdateRule()">Update
+									Rule</button>
+							</h3>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+</div>

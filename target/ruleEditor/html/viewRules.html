@@ -1,0 +1,35 @@
+<div id="validateRuleMainDiv" ng-controller="ruleInfoController" ng-init="connectWSServer()">
+	<div class="container-fluid">
+		<div class="row">
+			<div style="font-size: 16pt; font-weight: bold; text-align: center;">View Rules &nbsp&nbsp<span ng-click="refreshData()" ng-show="common.flags.showRuleTable" class="glyphicon glyphicon-refresh"></span></div>
+		</div>
+		<div class="row">
+		<div class="col-md-12" style="margin-left: 32%">
+							<h3 class="">
+								<label ng-show="common.flags.showEmptyTableMsg" style="color: red">No Data Available. Please Create Rule.</label>
+							</h3>
+		</div>
+		</div>
+		<div class="table-responsive"  ng-show="common.flags.showRuleTable" style="margin-top:20px;">
+			<table class="table table-scrollable table-striped table-condensed " id="validateRuleTableId" style="border-radius: 25px;">
+				<thead bgcolor="#B0B0B0">
+					<tr>
+						<th>Rule Id</th>
+						<th>Rule Name</th>
+						<th>Status</th>
+						<th>Edit</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="rule in ruleList">
+						<td ng-bind="rule.ruleId"></td>
+						<td ng-bind="rule.ruleName"></td>
+						<td ng-bind="rule.status"></td>
+						<td><button type="button" class="btn btn-sm btn-secondary" ng-click="editRule(rule)">Edit</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+</div>
